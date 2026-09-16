@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARC Reader Sign-Up — Burn This If You Want</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,900;1,600;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --blue-deep: #223245;
+    --blue: #4c77a6;
+    --blue-soft: #6c8ead;
+    --blue-pale: #dbe3ed;
+    --amber: #dd8a3c;
+    --amber-deep: #b5551f;
+    --ink: #14171a;
+    --text-light: #f3f1ea;
+    --text-muted: #aebdcc;
+    --card: rgba(255,255,255,0.05);
+    --card-line: rgba(243,241,234,0.14);
+  }
+
+  *{ box-sizing: border-box; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  html,body{
+    margin:0;
+    padding:0;
+    background: var(--blue-deep);
+    color: var(--text-light);
+    font-family: 'Source Serif 4', serif;
+    line-height: 1.6;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero{
+    position: relative;
+    background: linear-gradient(180deg, #1c2939 0%, var(--blue) 55%, var(--blue-soft) 100%);
+    margin: 0 -1000px;
+    padding: 0 1000px;
+    overflow: hidden;
+  }
+
+  .hero-inner{
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 56px 24px 0;
+    position: relative;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero .quote{
+    font-family: 'Archivo', sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    max-width: 480px;
+    margin: 0 0 60px;
+    opacity: 0;
+    animation: rise 0.7s ease-out 0.05s forwards;
+  }
+
+  .hero-body{
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    min-height: 160px;
+  }
+
+  .hero h1{
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: clamp(46px, 9vw, 74px);
+    line-height: 0.96;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: var(--text-light);
+    position: relative;
+    z-index: 2;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: rise 0.8s ease-out 0.18s forwards;
+  }
+
+  .hero h1 em{
+    font-style: italic;
+    font-weight: 900;
+  }
+
+  .byline{
+    position: relative;
+    z-index: 2;
+    background: var(--blue-pale);
+    margin: 0 -1000px;
+    padding: 26px 1000px 30px;
+    text-align: center;
+  }
+
+  .byline p{
+    font-family: 'Archivo', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.42em;
+    color: var(--ink);
+    margin: 0;
+    padding-left: 0.42em;
+  }
+
+  @keyframes rise{
+    from{ opacity: 0; transform: translateY(16px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn{
+    from{ opacity: 0; }
+    to{ opacity: 1; }
+  }
+
+  .kicker{
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin: 56px 0 10px;
+  }
+
+  /* ---------- LETTER / EXCERPT ---------- */
+
+  .letter{
+    background: var(--card);
+    border: 1px solid var(--card-line);
+    border-left: 3px solid var(--amber);
+    padding: 44px 40px;
+    margin-top: 4px;
+    position: relative;
+  }
+
+  .letter .salutation{
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 21px;
+    margin: 0 0 22px;
+    color: var(--amber);
+  }
+
+  .letter p{
+    font-size: 16.5px;
+    margin: 0 0 18px;
+    color: var(--text-light);
+    max-width: 64ch;
+  }
+
+  .letter p:last-child{ margin-bottom: 0; }
+
+  .letter .sign-off{
+    margin-top: 26px;
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+
+  /* ---------- SECTIONS ---------- */
+
+  section.block{ margin-top: 60px; }
+
+  .block h2{
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    margin: 0 0 8px;
+    color: var(--text-light);
+  }
+
+  .block .sub{
+    font-family: 'Archivo', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0 0 26px;
+  }
+
+  /* ---------- VIDEO ---------- */
+
+  .video-frame{
+    border: 1px solid var(--card-line);
+    background: var(--card);
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .video-frame iframe, .video-frame video{ width: 100%; height: 100%; border: 0; }
+
+  .video-placeholder{
+    text-align: center;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 24px;
+    font-size: 14px;
+  }
+
+  .video-placeholder .play{
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 1px solid var(--amber);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+
+  .video-placeholder .play svg{ width: 17px; height: 17px; fill: var(--amber); }
+
+  /* ---------- ASK LIST ---------- */
+
+  .ask-list{ list-style: none; margin: 0; padding: 0; counter-reset: ask; }
+
+  .ask-list li{
+    counter-increment: ask;
+    display: flex;
+    gap: 20px;
+    padding: 22px 0;
+    border-top: 1px solid var(--card-line);
+  }
+
+  .ask-list li:last-child{ border-bottom: 1px solid var(--card-line); }
+
+  .ask-list .num{
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--amber);
+    min-width: 28px;
+  }
+
+  .ask-list .num::before{ content: counter(ask); }
+
+  .ask-list .txt strong{
+    display: block;
+    font-family: 'Archivo', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 4px;
+  }
+
+  .ask-list .txt span{ font-size: 15px; color: var(--text-muted); }
+
+  /* ---------- FORM ---------- */
+
+  form{
+    background: var(--card);
+    border: 1px solid var(--card-line);
+    padding: 40px;
+  }
+
+  .field{ margin-bottom: 22px; }
+
+  .field label{
+    display: block;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .field input[type="text"],
+  .field input[type="email"],
+  .field select{
+    width: 100%;
+    background: var(--ink);
+    border: 1px solid var(--card-line);
+    color: var(--text-light);
+    font-family: 'Archivo', sans-serif;
+    font-size: 15px;
+    padding: 12px 14px;
+    border-radius: 2px;
+  }
+
+  .field input:focus, .field select:focus, button:focus, .admin-toggle:focus{
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+  }
+
+  .checkbox-field{
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 28px;
+  }
+
+  .checkbox-field input{ margin-top: 4px; flex-shrink: 0; }
+
+  .checkbox-field label{
+    font-family: 'Archivo', sans-serif;
+    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  button.submit{
+    width: 100%;
+    background: var(--amber);
+    color: var(--ink);
+    border: none;
+    font-family: 'Archivo', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 15px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  button.submit:hover{ background: var(--amber-deep); color: var(--text-light); }
+  button.submit:disabled{ opacity: 0.5; cursor: not-allowed; }
+
+  .error-msg{
+    font-family: 'Archivo', sans-serif;
+    font-size: 13.5px;
+    color: #e2949f;
+    margin: -10px 0 18px;
+  }
+
+  .confirm{ text-align: center; padding: 30px 10px 6px; }
+
+  .confirm .mark{
+    width: 46px; height: 46px; border-radius: 50%;
+    border: 1px solid var(--amber);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 18px;
+    animation: pop 0.4s ease-out;
+  }
+
+  @keyframes pop{
+    from{ transform: scale(0.6); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+  }
+
+  .confirm .mark svg{ width: 18px; height: 18px; stroke: var(--amber); }
+
+  .confirm h3{
+    font-family: 'Archivo', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 21px;
+    margin: 0 0 10px;
+    color: var(--text-light);
+  }
+
+  .confirm p{
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 40ch;
+    margin: 0 auto;
+  }
+
+  /* ---------- FOOTER / ADMIN ---------- */
+
+  footer{ margin-top: 72px; text-align: center; }
+
+  .admin-toggle{
+    background: none;
+    border: none;
+    font-family: 'Archivo', sans-serif;
+    font-size: 12.5px;
+    color: rgba(174,189,204,0.55);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .admin-panel{
+    margin-top: 20px;
+    text-align: left;
+    background: var(--card);
+    border: 1px solid var(--card-line);
+    padding: 24px;
+  }
+
+  .admin-panel input[type="password"]{
+    width: 100%;
+    background: var(--ink);
+    border: 1px solid var(--card-line);
+    color: var(--text-light);
+    font-family: 'Archivo', sans-serif;
+    font-size: 14px;
+    padding: 10px 12px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+
+  .admin-panel table{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Archivo', sans-serif;
+    font-size: 13px;
+  }
+
+  .admin-panel th, .admin-panel td{
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--card-line);
+    color: var(--text-muted);
+  }
+
+  .admin-panel th{ color: var(--text-light); font-weight: 700; }
+
+  .admin-note{
+    font-family: 'Archivo', sans-serif;
+    font-size: 12px;
+    color: rgba(174,189,204,0.6);
+    margin-top: 14px;
+  }
+
+  @media (max-width: 620px){
+    .hero-inner{ min-height: 300px; padding-top: 40px; }
+    .byline p{ font-size: 12px; letter-spacing: 0.3em; }
+    form{ padding: 26px; }
+    .letter{ padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="quote">Noah told himself it was nothing. For years, he almost believed it&hellip;</p>
+    <div class="hero-body">
+      <h1>Burn This<br>If You<br><em>Want</em></h1>
+    </div>
+  </div>
+  <div class="byline">
+    <p>KELSEY CROMWELL</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <p class="kicker">An advance reader invitation</p>
+
+  <div class="letter">
+    <p class="salutation">Dear reader,</p>
+    <p>Noah Hollins is writing to his brother Clarke from a hospital bed with a fifty-percent chance of walking out alive. For twenty years, he's carried in his conscience what he has to say. It started the night Clarke brought Erin home, when Noah was sixteen. She looked at him once — not Clarke, him. He told himself it was nothing. For a long time, he almost believed it.</p>
+    <p>What follows is the confession Noah always meant to give and never did: unsparing, desperate, addressed to the one person he loves most and has spent half his life betraying. It's the story of how he got everything he thought he wanted at his brother's expense — and how much more he actually lost in the taking.</p>
+    <p>Now, with the ending closer than either of them is ready for — will Clarke read the whole truth, or watch it burn?</p>
+    <p class="sign-off">Young adult contemporary fiction. Love, loss, coming of age, and the damage a family can hand down without meaning to.</p>
+  </div>
+
+  <section class="block">
+    <h2>A note from me</h2>
+    <p class="sub">Before you sign up, a few words on why this book — and why you.</p>
+    <div class="video-frame" id="videoFrame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/OjHlDmE8Ugw"
+        title="A note from Kelsey"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p class="sub" style="margin-top: 14px; margin-bottom: 0;">Want more behind-the-scenes bits about the book? Find me on TikTok — <a href="https://www.tiktok.com/@kelseycromwellwrites" target="_blank" rel="noopener" style="color: var(--amber); text-decoration: underline;">@kelseycromwellwrites</a></p>
+  </section>
+
+  <section class="block">
+    <h2>What I'm asking in return</h2>
+    <p class="sub">This is a small circle of readers, and I want to be upfront about the deal.</p>
+    <ul class="ask-list">
+      <li>
+        <span class="num"></span>
+        <span class="txt">
+          <strong>Sign up below</strong>
+          <span>Tell me your name, email, and preferred format for the ARC.</span>
+        </span>
+      </li>
+      <li>
+        <span class="num"></span>
+        <span class="txt">
+          <strong>Receive your copy</strong>
+          <span>You'll get a watermarked PDF direct from me. Reading on Kindle? Use Amazon's free Send to Kindle service to add it straight to your device.</span>
+        </span>
+      </li>
+      <li>
+        <span class="num"></span>
+        <span class="txt">
+          <strong>Post an honest review within 6 weeks</strong>
+          <span>Goodreads lets you post as soon as you've read it. Amazon and Waterstones only allow reviews once the book is actually live, so for those, write it up early and post it the moment it's published — I'll send a reminder on release day.</span>
+        </span>
+      </li>
+      <li>
+        <span class="num"></span>
+        <span class="txt">
+          <strong>Get credited</strong>
+          <span>Every ARC reader who follows through will be named in the special edition of the book.</span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="block" id="signup">
+    <h2>Request your ARC</h2>
+    <p class="sub">Spaces are limited — I read every one of these myself.</p>
+
+    <a class="submit" id="arcLink" href="https://docs.google.com/forms/d/e/1FAIpQLSdHj-JBm3R2COlMjGVvziQ6P2LMmI1lL0jl2AHFf6lWUmzPvg/viewform" target="_blank" rel="noopener" style="display:block; text-align:center; text-decoration:none;">Request my ARC copy</a>
+
+  </section>
+
+</div>
+
+<script>
+  // To add your video, replace the placeholder .video-frame contents with
+  // an iframe (YouTube/Vimeo embed URL) or a <video src="..."> tag.
+</script>
+
+</body>
+</html>
